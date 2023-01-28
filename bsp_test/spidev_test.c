@@ -25,8 +25,7 @@
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
-static void pabort(const char *s)
-{
+static void pabort(const char *s) {
 	if (errno != 0)
 		perror(s);
 	else
@@ -60,8 +59,7 @@ static uint8_t default_rx[ARRAY_SIZE(default_tx)] = {0, };
 static char *input_tx;
 
 static void hex_dump(const void *src, size_t length, size_t line_size,
-		     char *prefix)
-{
+		     char *prefix) {
 	int i = 0;
 	const unsigned char *address = src;
 	const unsigned char *line = address;
@@ -91,8 +89,7 @@ static void hex_dump(const void *src, size_t length, size_t line_size,
  *  Unescape - process hexadecimal escape character
  *      converts shell input "\x23" -> 0x23
  */
-static int unescape(char *_dst, char *_src, size_t len)
-{
+static int unescape(char *_dst, char *_src, size_t len) {
 	int ret = 0;
 	int match;
 	char *src = _src;
@@ -115,8 +112,7 @@ static int unescape(char *_dst, char *_src, size_t len)
 	return ret;
 }
 
-static void transfer(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
-{
+static void transfer(int fd, uint8_t const *tx, uint8_t const *rx, size_t len) {
 	int ret;
 	int out_fd;
 	struct spi_ioc_transfer tr = {
@@ -170,8 +166,7 @@ static void transfer(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
 		hex_dump(rx, len, 32, "RX");
 }
 
-static void print_usage(const char *prog)
-{
+static void print_usage(const char *prog) {
 	printf("Usage: %s [-DsbdlHOLC3vpNR24SI]\n", prog);
 	puts("  -D --device   device to use (default /dev/spidev1.1)\n"
 	     "  -s --speed    max speed (Hz)\n"
@@ -197,8 +192,7 @@ static void print_usage(const char *prog)
 	exit(1);
 }
 
-static void parse_opts(int argc, char *argv[])
-{
+static void parse_opts(int argc, char *argv[]) {
 	while (1) {
 		static const struct option lopts[] = {
 			{ "device",  1, 0, 'D' },
@@ -309,8 +303,7 @@ static void parse_opts(int argc, char *argv[])
 	}
 }
 
-static void transfer_escaped_string(int fd, char *str)
-{
+static void transfer_escaped_string(int fd, char *str) {
 	size_t size = strlen(str);
 	uint8_t *tx;
 	uint8_t *rx;
@@ -329,8 +322,7 @@ static void transfer_escaped_string(int fd, char *str)
 	free(tx);
 }
 
-static void transfer_file(int fd, char *filename)
-{
+static void transfer_file(int fd, char *filename) {
 	ssize_t bytes;
 	struct stat sb;
 	int tx_fd;
@@ -365,8 +357,7 @@ static void transfer_file(int fd, char *filename)
 static uint64_t _read_count;
 static uint64_t _write_count;
 
-static void show_transfer_rate(void)
-{
+static void show_transfer_rate(void) {
 	static uint64_t prev_read_count, prev_write_count;
 	double rx_rate, tx_rate;
 
@@ -379,8 +370,7 @@ static void show_transfer_rate(void)
 	prev_write_count = _write_count;
 }
 
-static void transfer_buf(int fd, int len)
-{
+static void transfer_buf(int fd, int len) {
 	uint8_t *tx;
 	uint8_t *rx;
 	int i;
@@ -413,8 +403,7 @@ static void transfer_buf(int fd, int len)
 	free(tx);
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	int ret = 0;
 	int fd;
 

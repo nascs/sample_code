@@ -1,6 +1,6 @@
 /*
-	Copyright (c) 2016 CurlyMo <curlymoo1@gmail.com>
-
+  Copyright (c) 2023 Radxa Ltd.
+  Author: Nascs <nascs@radxa.com>
   This Source Code Form is subject to the terms of the Mozilla Public
   License, v. 2.0. If a copy of the MPL was not distributed with this
   file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,7 +11,6 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <pthread.h>
-
 #include "wiringx.h"
 
 int main(void) {
