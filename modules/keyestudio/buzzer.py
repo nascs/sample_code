@@ -5,7 +5,7 @@ import radxa.rock4
 from OPi import GPIO
 import time
 
-
+# clear the warnings
 GPIO.setwarnings(False)
 # to define a pin
 BeepPin = 3

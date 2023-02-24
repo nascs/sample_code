@@ -17,7 +17,7 @@ int main () {
 
     while(1) { 
         if(digitalRead(button) == 0){   
-            sleep(0.2);     //按键消抖
+            sleep(0.2);
             if(digitalRead(button) == 0) {   
                 digitalWrite (led, LOW);    
             } 

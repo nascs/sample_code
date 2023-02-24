@@ -10,7 +10,7 @@
 
 int Get_DS18B20_Temp(double *temp);
 
-/* 获取DS18B20测量的温度信息 */
+/* Obtain temperature information measured by DS18B20 */
 int Get_DS18B20_Temp(double *temp) {
 	int 			 fd = -1;
 	int 			 rv = -1;
@@ -22,18 +22,18 @@ int Get_DS18B20_Temp(double *temp) {
 	char 			 buf[128];
 	char			*ptr;
 	
-	//清空dir_name和buf内存空间的值，避免随机值产生乱码
+
 	memset(dir_name, 0, sizeof(dir_name));
 	memset(buf, 0, sizeof(buf));
 
-	//打开文件夹"/sys/bus/w1/devices/"
+	//open folder "/sys/bus/w1/devices/"
 	if ((dirp = opendir(path)) == NULL) {
 		printf("ERROR: Open Directory '%s' Failure: %s\n", path, strerror(errno));
 		return -1;
 	}
 	printf("Open Directory '%s' Successfully\n", path);
 	
-	//在文件夹中找DS18B20的文件夹28-xx
+	//find 28-xx
 	while ((direntp = readdir(dirp)) != NULL) {
 		if (strstr(direntp->d_name, "28-") == NULL)
 			continue;
@@ -44,25 +44,24 @@ int Get_DS18B20_Temp(double *temp) {
 		break;
 	}
 	closedir(dirp);
-	
-	//找不到该文件夹
+
 	if (found == -1) {
 		printf("ERROR: Can not find DS18B20 in %s\n", path);
 		return -2;
 	}
 	
-	//将文件夹名和文件名分别拼接到path上	
+	// Concatenate the folder name and file name to the path	
 	strncat(path, dir_name, strlen(dir_name));
 	strncat(path, "/w1_slave", sizeof(path)-strlen(path));
 	
-	//打开w1_slave文件
+	// open w1_slave file
 	if ((fd = open(path, O_RDONLY)) < 0) {
 		printf("ERROR: Open file '%s' Failure: %s\n", path, strerror(errno));
 		return -3;
 	}
 	printf("Open file '%s' fd[%d] Successfully\n", path, fd);
 	
-	//从w1_slave中读取内容
+	// read data from w1_slave
 	if ((rv = read(fd, buf, sizeof(buf))) < 0) {
 		printf("ERROR: Read data from file '%s' Failure: %s\n", path, strerror(errno));
 		rv = -4;
@@ -70,14 +69,13 @@ int Get_DS18B20_Temp(double *temp) {
 	}
 	printf("Read %dB data from file '%s'\n", rv, path);
 	
-	//从buf里匹配"t="，并将ptr移到数据的首地址上
 	if ((ptr = strstr(buf, "t=") + 2) == NULL) {
 		printf("ERROR: Find data Failure: %s", strerror(errno));
 		rv = -5;
 		goto cleanup;
 	}
 	
-	//将数据转为double型，除1000得到正常的十进制温度
+	// Convert the data to double, divide by 1000 to get the normal decimal temperature
 	*temp = atof(ptr)/1000;
 
 cleanup:
