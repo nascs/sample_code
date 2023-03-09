@@ -3,9 +3,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-// #define servo 2
-
-// 接收一个输入度数
 int main(int argc, char *argv[]) {
 
     int pat = 200;
@@ -21,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     angle = atoi(argv[1]);
 
-    // 判断度数的范围，并将度数转化为驱动值
+    // get the true angle
     if(angle<=180 && angle>=0){
         rotation = 40+10*angle;
     } else {
@@ -38,10 +35,8 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    //设置舵机控制引脚
     pinMode(servo, PINMODE_OUTPUT) ;
     
-    // 给舵机一段时间的反应，持续输出控制值
     for (int i = 0; i < pat; i++) {
         digitalWrite(servo, HIGH);
         usleep(rotation);
