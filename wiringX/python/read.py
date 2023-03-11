@@ -18,9 +18,9 @@ gpio.pinMode(gpio.PIN8, gpio.PINMODE_INPUT);
 
 try:
 	while True:
-		print "Reading from pin 8: "+str(gpio.digitalRead(gpio.PIN8));
+		print("Reading from pin 8: "+str(gpio.digitalRead(gpio.PIN8)));
 		sleep(1);
-		print "Reading from pin 8: "+str(gpio.digitalRead(gpio.PIN8));
+		print("Reading from pin 8: "+str(gpio.digitalRead(gpio.PIN8)));
 		sleep(1);
 except KeyboardInterrupt:
 	pass
