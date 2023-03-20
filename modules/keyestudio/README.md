@@ -946,6 +946,43 @@ g							gnd
 
 ### bluetooth
 
+1. pin 
+
+   ```bash
+   HC-06							Radxa rock4
+   RXD								UART4_RXD
+   TXD								UART4_TXD
+   VCC								3.3/5V
+   GND								GND
+   ```
+
+2. use rsetup to enable uart4 and then reboot,  make sure that uart4 was enabled
+
+   ```bash
+   radxa@rock-4c-plus:~$ ls
+   /dev/ttyS4
+   ```
+
+3. install minicom or the other  graphical serial port tool
+
+   ```minicom
+   sudo apt-get install minicom -y
+   ```
+
+4. use minicom to open /dev/ttyS4, or you can use sample_code/wiringX/c/recv.c
+
+   ```bash
+   sudo minicom -D /dev/ttyS4 -b 9600
+   ```
+
+5. pair
+
+   use your computer or phone which installed bluetooth-serial to connect HC06 with bluetooth
+
+6. data transmission
+
+   use your computer or phone to send data to HC06, then you will see data you send in minicom
+
 
 
 ### Rotation Sensor
