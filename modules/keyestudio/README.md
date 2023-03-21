@@ -1,7 +1,7 @@
 ## env
 ```
 sudo apt-get install cmake build-essential git python3-dev -y
-sudo pip3 install smbus2
+sudo pip3 install smbus2 spidev
 git clone https://github.com/nascs/sample_code.git
 wiringX: https://wiki.radxa.com/WiringX
 ```
@@ -933,6 +933,34 @@ g							gnd
    The steering gear will turn at the angle you set.
 
 ### ws2812b
+
+1. use rsetup to enable spi1, and make sure spi1 was enabled
+
+   ```bash
+   ls /dev/ |grep spi1
+   /dev/spi1.0
+   ```
+
+2. pin
+
+   ```bash
+   ws2812b						Radxa rock4
+   IN							spi1 mosi
+   GDN							GND
+   VCC							VCC
+   ```
+
+3. run the program
+
+   ```bash
+   sudo python3 ws2812b.py
+   ```
+
+   then,  you will see the led blink as the program designed.
+
+4. if you want to change the color of the led, please change the data of led_on in hexadecimal format.
+
+   
 
 
 
