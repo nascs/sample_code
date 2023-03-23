@@ -133,6 +133,6 @@ class WS2812B:
         self.spi.xfer(self.led_off)
 
 if __name__ == "__main__" :
-    led = WS2812B(1, 0, 64)
+    led = WS2812B(1, 0, 8)
     led.light_in_order()
     led.all_led_off()
