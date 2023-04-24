@@ -13,7 +13,6 @@
 #include <unistd.h>
 
 #include "wiringx.h"
-#include "../src/platform/platform.h"
 
 char *usage =
 	"Usage: %s platform GPIO\n"
