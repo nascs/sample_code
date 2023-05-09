@@ -375,9 +375,9 @@ radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
 Method 1
 
 1.  enable the i2c7
-
- please refer to https://wiki.radxa.com/Zero/dev/RTC_module_ds3231
-   
+   ```
+      please refer to https://wiki.radxa.com/Zero/dev/RTC_module_ds3231
+   ```
 
 2. run the program
 
