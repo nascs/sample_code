@@ -376,32 +376,7 @@ Method 1
 
 1.  enable the i2c7
 
-   * use rsetup to enable i2c7
-
-   * reboot
-
-   * make sure that i2c7 was enabled
-
-     ```bash
-     radxa@rock-4c-plus:~$ ls /dev/i2c-*
-     /dev/i2c-0  /dev/i2c-7  /dev/i2c-9
-     ```
-
-   * check i2c device and remember  the i2c address 
-
-     ```bash
-     radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
-          0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-     00:                         -- -- -- -- -- -- -- -- 
-     10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
-     70: -- -- -- -- -- -- -- --   
-     ```
-
+ please refer to https://wiki.radxa.com/Zero/dev/RTC_module_ds3231
    
 
 2. run the program
