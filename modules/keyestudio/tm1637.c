@@ -67,10 +67,10 @@ void stopDisplay() {
 void display() {
 	startDisplay();writeData(CMD_AUTOINCREASE);stopDisplay();
 	startDisplay();writeData(CMD_STARTADDRESS);
-    writeData(data[1]);
-    writeData(data[0]);
-    writeData(data[2]);
-    writeData(data[4]);
+	writeData(data[1]);
+	writeData(data[0]);
+	writeData(data[2]);
+	writeData(data[4]);
 	stopDisplay();
 	startDisplay();writeData(CMD_BRIGHTNESS);stopDisplay();
 }
