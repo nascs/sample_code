@@ -990,7 +990,25 @@ g							gnd
 
 ### Rotation Sensor
 
+1. pin 
 
+   ```bash
+   rotation sensor				Radxa rock4
+   S								   Pin 26
+   VCC								3.3/5V
+   GND								GND
+   ```
+
+2. run the program
+
+   ```bash
+   gcc rotation_sensor.c
+   
+   sudo ./a.out
+   IIO device value: 954
+   ```
+
+   and, you can turn the knob and run the program again, then, you will see the different value which ranging from 0 to 1023.
 
 ### LM35
 
