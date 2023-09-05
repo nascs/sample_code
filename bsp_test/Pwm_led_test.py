@@ -13,23 +13,23 @@ channel = int(input("channel:"))
 pwm = PWM(pwmchip, channel)
 
 try:
-    pwm.frequency = 1e3
-    pwm.duty_cycle = 0.00
-    pwm.enable()
+	pwm.frequency = 1e3
+	pwm.duty_cycle = 0.00
+	pwm.enable()
 
-    while True:
-        for i in range(0,Range):
-            time.sleep(step)
-            pwm.duty_cycle = round(pwm.duty_cycle+step,2)
+	while True:
+		for i in range(0,Range):
+			time.sleep(step)
+			pwm.duty_cycle = round(pwm.duty_cycle+step,2)
 
-        if pwm.duty_cycle == 1.5:
-            time.sleep(1.5)
-        for i in range(0,Range):
-            time.sleep(step)
-            pwm.duty_cycle = round(pwm.duty_cycle-step,2)
+		if pwm.duty_cycle == 1.5:
+			time.sleep(1.5)
+		for i in range(0,Range):
+			time.sleep(step)
+			pwm.duty_cycle = round(pwm.duty_cycle-step,2)
 except:
-    print("Error !\n")
+	print("Error !\n")
 
 finally:
-    pwm.duty_cycle = 1.0
-    pwm.close()
+	pwm.duty_cycle = 1.0
+	pwm.close()

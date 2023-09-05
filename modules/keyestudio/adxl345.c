@@ -60,14 +60,14 @@ int main(void) {
 	struct acc_dat acc_xyz;
  
 
-    if(wiringXSetup("rock4", NULL) == -1) {
-        printf("wiringXSetup failed ...\n");
-        return -1;
-    }
-    if((fd = wiringXI2CSetup("/dev/i2c-7",0x53)) == -1) {
-        printf("wiringXI2CSetup failed ...\n");
-        return -1;
-    }
+	if(wiringXSetup("rock4", NULL) == -1) {
+		printf("wiringXSetup failed ...\n");
+		return -1;
+	}
+	if((fd = wiringXI2CSetup("/dev/i2c-7",0x53)) == -1) {
+		printf("wiringXI2CSetup failed ...\n");
+		return -1;
+	}
 	
 	adxl345_init(fd);
  

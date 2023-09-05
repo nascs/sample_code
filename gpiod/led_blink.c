@@ -23,21 +23,21 @@ int main(int args, char *argv[]) {
 	// check the parm acount
 	if(args != 3) {
 		printf("parameter error\n");
-		printf("example:\n    ./a.out 3 4\n");
+		printf("example:\n	./a.out 3 4\n");
 		return -1;
 	}
 	// Check the second parm
 	chip_num = strtol(argv[1], &endptr, 10);
-    if (*endptr != '\0') {
-        printf("parm 1: type error\n");
-        return -1;
-    }
+	if (*endptr != '\0') {
+		printf("parm 1: type error\n");
+		return -1;
+	}
 	// Check the third parm
 	line_num = strtol(argv[2], &endptr, 10);
-    if (*endptr != '\0') {
-        printf("parm 2: type error\n");
-        return -1;
-    }
+	if (*endptr != '\0') {
+		printf("parm 2: type error\n");
+		return -1;
+	}
 
 	sprintf(chip_path, "/dev/gpiochip%s", argv[1]);
 

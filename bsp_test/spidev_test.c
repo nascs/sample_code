@@ -54,7 +54,7 @@ uint8_t default_rx[ARRAY_SIZE(default_tx)] = {0, };
 char *input_tx;
 
 static void hex_dump(const void *src, size_t length, size_t line_size,
-		     char *prefix)
+			 char *prefix)
 {
 	int i = 0;
 	const unsigned char *address = src;
@@ -83,7 +83,7 @@ static void hex_dump(const void *src, size_t length, size_t line_size,
 
 /*
  *  Unescape - process hexadecimal escape character
- *      converts shell input "\x23" -> 0x23
+ *	  converts shell input "\x23" -> 0x23
  */
 static int unescape(char *_dst, char *_src)
 {
@@ -164,23 +164,23 @@ static void print_usage(const char *prog)
 {
 	printf("Usage: %s [-DsbdlHOLC3]\n", prog);
 	puts("  -D --device   device to use (default /dev/spidev0.0)\n"
-	     "  -s --speed    max speed (Hz)\n"
-	     "  -d --delay    delay (usec)\n"
-	     "  -b --bpw      bits per word\n"
-	     "  -i --input    input data from a file (e.g. \"test.bin\")\n"
-	     "  -o --output   output data to a file (e.g. \"results.bin\")\n"
-	     "  -l --loop     loopback\n"
-	     "  -H --cpha     clock phase\n"
-	     "  -O --cpol     clock polarity\n"
-	     "  -L --lsb      least significant bit first\n"
-	     "  -C --cs-high  chip select active high\n"
-	     "  -3 --3wire    SI/SO signals shared\n"
-	     "  -v --verbose  Verbose (show tx buffer)\n"
-	     "  -p            Send data (e.g. \"1234\\xde\\xad\")\n"
-	     "  -N --no-cs    no chip select\n"
-	     "  -R --ready    slave pulls low to pause\n"
-	     "  -2 --dual     dual transfer\n"
-	     "  -4 --quad     quad transfer\n");
+		 "  -s --speed	max speed (Hz)\n"
+		 "  -d --delay	delay (usec)\n"
+		 "  -b --bpw	  bits per word\n"
+		 "  -i --input	input data from a file (e.g. \"test.bin\")\n"
+		 "  -o --output   output data to a file (e.g. \"results.bin\")\n"
+		 "  -l --loop	 loopback\n"
+		 "  -H --cpha	 clock phase\n"
+		 "  -O --cpol	 clock polarity\n"
+		 "  -L --lsb	  least significant bit first\n"
+		 "  -C --cs-high  chip select active high\n"
+		 "  -3 --3wire	SI/SO signals shared\n"
+		 "  -v --verbose  Verbose (show tx buffer)\n"
+		 "  -p			Send data (e.g. \"1234\\xde\\xad\")\n"
+		 "  -N --no-cs	no chip select\n"
+		 "  -R --ready	slave pulls low to pause\n"
+		 "  -2 --dual	 dual transfer\n"
+		 "  -4 --quad	 quad transfer\n");
 	exit(1);
 }
 
@@ -191,20 +191,20 @@ static void parse_opts(int argc, char *argv[])
 			{ "device",  1, 0, 'D' },
 			{ "speed",   1, 0, 's' },
 			{ "delay",   1, 0, 'd' },
-			{ "bpw",     1, 0, 'b' },
+			{ "bpw",	 1, 0, 'b' },
 			{ "input",   1, 0, 'i' },
 			{ "output",  1, 0, 'o' },
-			{ "loop",    0, 0, 'l' },
-			{ "cpha",    0, 0, 'H' },
-			{ "cpol",    0, 0, 'O' },
-			{ "lsb",     0, 0, 'L' },
+			{ "loop",	0, 0, 'l' },
+			{ "cpha",	0, 0, 'H' },
+			{ "cpol",	0, 0, 'O' },
+			{ "lsb",	 0, 0, 'L' },
 			{ "cs-high", 0, 0, 'C' },
 			{ "3wire",   0, 0, '3' },
 			{ "no-cs",   0, 0, 'N' },
 			{ "ready",   0, 0, 'R' },
-			{ "dual",    0, 0, '2' },
+			{ "dual",	0, 0, '2' },
 			{ "verbose", 0, 0, 'v' },
-			{ "quad",    0, 0, '4' },
+			{ "quad",	0, 0, '4' },
 			{ NULL, 0, 0, 0 },
 		};
 		int c;

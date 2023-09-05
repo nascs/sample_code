@@ -56,7 +56,7 @@ int main (void) {
 	for (speed = 1 ; speed <= 32 ; speed *= 2) {
 
 		printf ("+-------+--------+----------+----------+-----------+------------+\n") ;
-		printf ("|   MHz |   Size | mS/Trans |      TpS |    Mb/Sec | Latency mS |\n") ;
+		printf ("|   MHz |   Size | mS/Trans |	  TpS |	Mb/Sec | Latency mS |\n") ;
 		printf ("+-------+--------+----------+----------+-----------+------------+\n") ;
 
 		spiFail = FALSE ;
@@ -76,8 +76,8 @@ int main (void) {
 			if (spiFail)
 				break ;
 
-			timePerTransaction        = ((double)(end - start) / (double)NUM_TIMES) / 1000.0 ;
-			dataSpeed                 =  (double)(size * 8)    / (1024.0 * 1024.0) / timePerTransaction  ;
+			timePerTransaction		= ((double)(end - start) / (double)NUM_TIMES) / 1000.0 ;
+			dataSpeed				 =  (double)(size * 8)	/ (1024.0 * 1024.0) / timePerTransaction  ;
 			perfectTimePerTransaction = ((double)(size * 8))   / ((double)(speed * 1000000)) ;
 
 			printf ("| %8.3f ", timePerTransaction * 1000.0) ;

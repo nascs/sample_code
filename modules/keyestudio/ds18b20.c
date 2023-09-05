@@ -17,7 +17,7 @@ int Get_DS18B20_Temp(double *temp) {
 	char 			 path[50] = "/sys/bus/w1/devices/";
 	char			 dir_name[20];
 	int				 found = -1;
-	DIR 		    *dirp;
+	DIR 			*dirp;
 	struct dirent	*direntp;
 	char 			 buf[128];
 	char			*ptr;

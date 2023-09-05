@@ -16,7 +16,7 @@
 
 char *usage =
 	"Usage: %s platform GPIO\n"
-	"       GPIO is the GPIO to write to\n"
+	"	   GPIO is the GPIO to write to\n"
 	"Example: %s raspberrypi2 10\n";
 
 int main(int argc, char *argv[]) {

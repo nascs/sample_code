@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	pthread_t pth;
 	int led = 8, knock = 9;
 	int i = 0, err = 0;
-    int status = 0;
+	int status = 0;
 
 	if(wiringXSetup("rock4", NULL) == -1) {
 		wiringXGC();
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	pinMode(led, PINMODE_OUTPUT);
-    // pinMode(knock, PINMODE_INPUT);
+	// pinMode(knock, PINMODE_INPUT);
 	if((wiringXISR(knock, ISR_MODE_FALLING)) != 0) {
 		printf("%s: Cannot set GPIO %d to interrupt BOTH\n", argv[0], knock);
 		wiringXGC();
@@ -52,12 +52,12 @@ int main(int argc, char *argv[]) {
 	}
 
 	while(1) {
-        if(waitForInterrupt(knock, 1000) == 0) {
-            digitalWrite(led, LOW);
-        } else {
-            digitalWrite(led, HIGH);
-        }
-        sleep(1);
+		if(waitForInterrupt(knock, 1000) == 0) {
+			digitalWrite(led, LOW);
+		} else {
+			digitalWrite(led, HIGH);
+		}
+		sleep(1);
 	}
 
 	printf("Main finished, waiting for thread ...\n");

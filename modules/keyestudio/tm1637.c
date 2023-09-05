@@ -77,9 +77,9 @@ void display() {
 
 int main() {
 	if(wiringXSetup("rock4", NULL) == -1) {
-        printf("failed to initialize rock4\n");
-        return -1;
-    }
+		printf("failed to initialize rock4\n");
+		return -1;
+	}
 
 	pinMode(CLK,PINMODE_OUTPUT);
 	pinMode(DIO,PINMODE_OUTPUT);

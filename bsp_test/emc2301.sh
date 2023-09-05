@@ -30,14 +30,14 @@ MAX_FAN_SPEED_HEX=$(printf "0x%02x" "$MAX_FAN_SPEED")
 
 # Start a loop.
 while true; do
-    # Get the current temperature.
-    CURRENT_TEMP=$(cat /sys/class/thermal/thermal_zone0/temp)
-    if [ $CURRENT_TEMP -ge $TEMP_COMPARE ]; then
-        # If current temperature is more than desired, set fan to maximum speed.
-        i2cset -y 0 0x2f 0x30 $MAX_FAN_SPEED_HEX
-    else
-        # If current temperature is good, set fan to minimum speed.
-        i2cset -y 0 0x2f 0x30 $MIN_FAN_SPEED_HEX
-    fi
-    sleep 10
+	# Get the current temperature.
+	CURRENT_TEMP=$(cat /sys/class/thermal/thermal_zone0/temp)
+	if [ $CURRENT_TEMP -ge $TEMP_COMPARE ]; then
+		# If current temperature is more than desired, set fan to maximum speed.
+		i2cset -y 0 0x2f 0x30 $MAX_FAN_SPEED_HEX
+	else
+		# If current temperature is good, set fan to minimum speed.
+		i2cset -y 0 0x2f 0x30 $MIN_FAN_SPEED_HEX
+	fi
+	sleep 10
 done

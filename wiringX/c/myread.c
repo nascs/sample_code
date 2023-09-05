@@ -16,7 +16,7 @@
 
 char *usage =
 	"Usage: %s platform GPIO \n"
-	"       GPIO to read from = input\n"
+	"	   GPIO to read from = input\n"
 	"Example: %s rock3a_v1_3 4 \n";
 
 int main(int argc, char *argv[]) {

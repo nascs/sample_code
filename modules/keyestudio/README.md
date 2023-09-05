@@ -16,25 +16,25 @@ wiringX: https://wiki.radxa.com/WiringX
 4. pin
 
    ```bash
-   LCD1602         Radxa rock4
-    GND             GND
-    VCC             5V
-    SDA             I2C7_SDA
-    SCL             I2C7_SCL
+   LCD1602		 Radxa rock4
+	GND			 GND
+	VCC			 5V
+	SDA			 I2C7_SDA
+	SCL			 I2C7_SCL
    ```
 
 5. check i2c device and remember  the i2c address 
 ```bash
 radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                         -- -- -- -- -- -- -- -- 
+	 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:						 -- -- -- -- -- -- -- -- 
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 20: -- -- -- -- -- -- -- 27 -- -- -- -- -- -- -- -- 
 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-70: -- -- -- -- -- -- -- --     
+70: -- -- -- -- -- -- -- --	 
 ```
 
 i2c address:  0x27
@@ -42,7 +42,7 @@ i2c address:  0x27
 6. run program
 
    ```bash
-    sudo python LCD1602.py
+	sudo python LCD1602.py
    ```
 
    
@@ -65,18 +65,18 @@ i2c address:  0x27
    ```
 
 4. pin
-   adxl345         Radxa rock4
-    GND             GND
-    VCC             5V
-    SDA             I2C7_SDA
-    SCL             I2C7_SCL
+   adxl345		 Radxa rock4
+	GND			 GND
+	VCC			 5V
+	SDA			 I2C7_SDA
+	SCL			 I2C7_SCL
 
 5. check i2c device and remember  the i2c address 
 
    ```bash
    radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
-        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-   00:                         -- -- -- -- -- -- -- -- 
+		0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+   00:						 -- -- -- -- -- -- -- -- 
    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -127,17 +127,17 @@ i2c address:  0x27
 
 1.  pin
 
-      	led					Radxa rock4
-      	 s						pin 3
-      	 v						3.3v/5v
-      	 g						gnd
+	  	led					Radxa rock4
+	  	 s						pin 3
+	  	 v						3.3v/5v
+	  	 g						gnd
 
 
 
-        button					Radxa rock4
-         s						  	pin 5
-         v							3.3v/5v  	
-         g							gnd
+		button					Radxa rock4
+		 s						  	pin 5
+		 v							3.3v/5v  	
+		 g							gnd
 
 2. compile the program button_led.c
 
@@ -227,38 +227,38 @@ radxa@rock-4c-plus:~$ ls /dev/i2c-*
  ```
 
 4. pin
-   LCD1602         Radxa rock4
-    GND             GND
-    VCC             5V
-    SDA             I2C7_SDA
-    SCL             I2C7_SCL
+   LCD1602		 Radxa rock4
+	GND			 GND
+	VCC			 5V
+	SDA			 I2C7_SDA
+	SCL			 I2C7_SCL
 5. check i2c device and remember  the i2c address 
 
 ```bash
 radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                         -- -- -- -- -- -- -- -- 
+	 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:						 -- -- -- -- -- -- -- -- 
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 30: -- -- -- -- -- -- -- -- -- -- -- -- 3c -- -- -- 
 40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-70: -- -- -- -- -- -- -- --     
+70: -- -- -- -- -- -- -- --	 
 ```
 
 ​	i2c address:  0x3c
 
  6. compile the program and run the program
 
-    ```bash
-    root@rock-4c-plus:/home/radxa/sample_code/modules/keyestudio# gcc oled.c -lwiringx 
-    root@rock-4c-plus:/home/radxa/sample_code/modules/keyestudio# ./a.out
-    ```
+	```bash
+	root@rock-4c-plus:/home/radxa/sample_code/modules/keyestudio# gcc oled.c -lwiringx 
+	root@rock-4c-plus:/home/radxa/sample_code/modules/keyestudio# ./a.out
+	```
 
  7.  checkout the result
 
-    you will see "Radxa rock4" on the oled screen, if you want to display the other num or letter(not support chinese yet), you can refer to oledFont.h, 
+	you will see "Radxa rock4" on the oled screen, if you want to display the other num or letter(not support chinese yet), you can refer to oledFont.h, 
 
 
 ### buzzer or led
@@ -306,36 +306,36 @@ radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
 
    * make sure that i2c7 was enabled
 
-     ```bash
-     radxa@rock-4c-plus:~$ ls /dev/i2c-*
-     /dev/i2c-0  /dev/i2c-7  /dev/i2c-9
-     ```
+	 ```bash
+	 radxa@rock-4c-plus:~$ ls /dev/i2c-*
+	 /dev/i2c-0  /dev/i2c-7  /dev/i2c-9
+	 ```
 
    * check i2c device and remember  the i2c address 
 
-     ```bash
-     radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
-          0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-     00:                         -- -- -- -- -- -- -- -- 
-     10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- -- 
-     30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-     70: -- -- -- -- -- -- -- --    
-     ```
+	 ```bash
+	 radxa@rock-4c-plus:~$ sudo i2cdetect -r -y 7
+		  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+	 00:						 -- -- -- -- -- -- -- -- 
+	 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	 20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- -- 
+	 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	 40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	 70: -- -- -- -- -- -- -- --	
+	 ```
 
-     
+	 
 
 3.  pin
 
    ```bash
-   TCS34725         Radxa rock4
-    GND             GND
-    VCC             5V
-    SDA             I2C7_SDA
-    SCL             I2C7_SCL
+   TCS34725		 Radxa rock4
+	GND			 GND
+	VCC			 5V
+	SDA			 I2C7_SDA
+	SCL			 I2C7_SCL
    ```
 
    
@@ -376,7 +376,7 @@ Method 1
 
 1.  enable the i2c7
    ```
-      please refer to https://wiki.radxa.com/Zero/dev/RTC_module_ds3231
+	  please refer to https://wiki.radxa.com/Zero/dev/RTC_module_ds3231
    ```
 
 2. run the program
@@ -519,43 +519,43 @@ g							gnd
    Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
    Input device name: "gpio_ir_recv"
    Supported events:
-     Event type 0 (EV_SYN)
-     Event type 1 (EV_KEY)
-       Event code 2 (KEY_1)
-       Event code 3 (KEY_2)
-       Event code 4 (KEY_3)
-       Event code 5 (KEY_4)
-       Event code 6 (KEY_5)
-       Event code 7 (KEY_6)
-       Event code 8 (KEY_7)
-       Event code 9 (KEY_8)
-       Event code 10 (KEY_9)
-       Event code 11 (KEY_0)
-       Event code 13 (KEY_EQUAL)
-       Event code 59 (KEY_F1)
-       Event code 60 (KEY_F2)
-       Event code 114 (KEY_VOLUMEDOWN)
-       Event code 115 (KEY_VOLUMEUP)
-       Event code 164 (KEY_PLAYPAUSE)
-       Event code 363 (KEY_CHANNEL)
-       Event code 402 (KEY_CHANNELUP)
-       Event code 403 (KEY_CHANNELDOWN)
-       Event code 407 (KEY_NEXT)
-       Event code 412 (KEY_PREVIOUS)
-     Event type 2 (EV_REL)
-       Event code 0 (REL_X)
-       Event code 1 (REL_Y)
-     Event type 4 (EV_MSC)
-       Event code 4 (MSC_SCAN)
+	 Event type 0 (EV_SYN)
+	 Event type 1 (EV_KEY)
+	   Event code 2 (KEY_1)
+	   Event code 3 (KEY_2)
+	   Event code 4 (KEY_3)
+	   Event code 5 (KEY_4)
+	   Event code 6 (KEY_5)
+	   Event code 7 (KEY_6)
+	   Event code 8 (KEY_7)
+	   Event code 9 (KEY_8)
+	   Event code 10 (KEY_9)
+	   Event code 11 (KEY_0)
+	   Event code 13 (KEY_EQUAL)
+	   Event code 59 (KEY_F1)
+	   Event code 60 (KEY_F2)
+	   Event code 114 (KEY_VOLUMEDOWN)
+	   Event code 115 (KEY_VOLUMEUP)
+	   Event code 164 (KEY_PLAYPAUSE)
+	   Event code 363 (KEY_CHANNEL)
+	   Event code 402 (KEY_CHANNELUP)
+	   Event code 403 (KEY_CHANNELDOWN)
+	   Event code 407 (KEY_NEXT)
+	   Event code 412 (KEY_PREVIOUS)
+	 Event type 2 (EV_REL)
+	   Event code 0 (REL_X)
+	   Event code 1 (REL_Y)
+	 Event type 4 (EV_MSC)
+	   Event code 4 (MSC_SCAN)
    Key repeat handling:
-     Repeat type 20 (EV_REP)
-       Repeat code 0 (REP_DELAY)
-         Value    500
-       Repeat code 1 (REP_PERIOD)
-         Value    125
+	 Repeat type 20 (EV_REP)
+	   Repeat code 0 (REP_DELAY)
+		 Value	500
+	   Repeat code 1 (REP_PERIOD)
+		 Value	125
    Properties:
-     Property type 5 (INPUT_PROP_POINTING_STICK)
-     /* Please press the infrared remote control */
+	 Property type 5 (INPUT_PROP_POINTING_STICK)
+	 /* Please press the infrared remote control */
    Testing ... (interrupt to exit)
    Event: time 1678266663.056227, type 4 (EV_MSC), code 4 (MSC_SCAN), value 00
    Event: time 1678266663.056227, -------------- SYN_REPORT ------------
@@ -597,27 +597,27 @@ g							gnd
    # in not defined elsewhere.
    
    [lircd]
-   nodaemon        = False
-   driver          = default
-   device          = /dev/lirc0
-   output          = /var/run/lirc/lircd
-   pidfile         = /var/run/lirc/lircd.pid
-   plugindir       = /usr/lib/aarch64-linux-gnu/lirc/plugins
-   permission      = 666
+   nodaemon		= False
+   driver		  = default
+   device		  = /dev/lirc0
+   output		  = /var/run/lirc/lircd
+   pidfile		 = /var/run/lirc/lircd.pid
+   plugindir	   = /usr/lib/aarch64-linux-gnu/lirc/plugins
+   permission	  = 666
    allow-simulate  = No
-   repeat-max      = 600
+   repeat-max	  = 600
    #effective-user =
-   #listen         = [address:]port
-   #connect        = host[:port]
-   #loglevel       = 6
-   #release        = true
+   #listen		 = [address:]port
+   #connect		= host[:port]
+   #loglevel	   = 6
+   #release		= true
    #release_suffix = _EVUP
-   #logfile        = ...
+   #logfile		= ...
    #driver-options = ...
    
    [lircmd]
-   uinput          = False
-   nodaemon        = False
+   uinput		  = False
+   nodaemon		= False
    
    # [modinit]
    # code = /usr/sbin/modprobe lirc_serial
@@ -627,8 +627,8 @@ g							gnd
    
    # [lircd-uinput]
    # add-release-events = False
-   # release-timeout    = 200
-   # release-suffix     = _EVUP
+   # release-timeout	= 200
+   # release-suffix	 = _EVUP
    ```
 
    then reboot the device radxa rock-4c-plus
@@ -778,7 +778,7 @@ g							gnd
    
    No significant noise (received 0 bytes)
    
-   Enter name of remote (only ascii, no spaces) :key00_encode      
+   Enter name of remote (only ascii, no spaces) :key00_encode	  
    Using key00_encode.lircd.conf as output filename
    
    Now start pressing buttons on your remote control.
@@ -855,16 +855,16 @@ g							gnd
 
    ```bash
    led					Radxa rock4
-    s						pin 3
-    v						3.3v/5v
-    g						gnd
+	s						pin 3
+	v						3.3v/5v
+	g						gnd
    ```
 
    ```bash
    knock					Radxa rock4
-    s						pin 5
-    v						3.3v/5v
-    g						gnd
+	s						pin 5
+	v						3.3v/5v
+	g						gnd
    ```
 
 2. compile the code knock_sensor.c
@@ -891,9 +891,9 @@ g							gnd
 
    ```bash
    ms90s					Radxa rock4
-    s						pin 13
-    v						3.3v/5v
-    g						gnd
+	s						pin 13
+	v						3.3v/5v
+	g						gnd
    ```
 
 2. compile the code, and run the program

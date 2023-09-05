@@ -9,9 +9,9 @@ int main(void) {
 	int i = 0;
 
 	if(wiringXSetup("rock4", NULL) == -1) {
-        printf("failed to initialize rock4\n");
-        return -1;
-    }
+		printf("failed to initialize rock4\n");
+		return -1;
+	}
 	
 	pinMode(INA,PINMODE_OUTPUT);
 	pinMode(INB,PINMODE_OUTPUT);
