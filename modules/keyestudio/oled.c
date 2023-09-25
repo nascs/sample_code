@@ -179,7 +179,7 @@ int main(void) {
 		return -1;
 	} 
  
-	OLED_ShowString(0,0,"Radxa rock4"); // Change the characters on the screen here
+	OLED_ShowString(0,0,"Radxa ROCK 4"); // Change the characters on the screen here
 
 	return 0;
 }
