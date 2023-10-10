@@ -14,7 +14,7 @@ fi
 counter=0
 echo "start to blink pin $1 ..."
 
-for ((i=0; i<5; i++)); do
+for ((i=0; i<3; i++)); do
 	echo "pin $1: high"
 	sudo mraa-gpio set $1 1
 	sleep 1s
