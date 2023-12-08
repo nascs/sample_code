@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
 
 """
 ili9486.py - Raspberry PI python driver for ILI9486
