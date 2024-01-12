@@ -8,11 +8,11 @@ import time
 reader = SimpleMFRC522()
 
 try:
-    while True:
-        print("请将卡片放置在读卡器上...")
-        id, text = reader.read()
-        print("卡片 UID: {}".format(id))
-        print("卡片内容: {}".format(text))
-        time.sleep(2)
+	while True:
+		print("请将卡片放置在读卡器上...")
+		id, text = reader.read()
+		print("卡片 UID: {}".format(id))
+		print("卡片内容: {}".format(text))
+		time.sleep(2)
 finally:
-    GPIO.cleanup()
+	GPIO.cleanup()
