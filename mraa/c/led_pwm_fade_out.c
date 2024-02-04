@@ -1,25 +1,52 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <ctype.h>
 #include "mraa/pwm.h"
-
-/* Radxa ROCK 5A Pin 11 */
-#define PWM 11
 
 /* PWM period in us */
 #define PWM_FREQ 1e3
 
-int main() {
+char *usage =
+	"Usage: %s pwm_pin\n"
+	"Example: %s 3\n";
+
+int main(int argc, char *argv[]) {
+	char usagestr[130];
+	char *str = NULL;
+	int invalid = 0, pwm_num = 0;
 	mraa_result_t status = MRAA_SUCCESS;
 	mraa_pwm_context pwm;
 	float output = 0.0;
 	float duty_cycle = 0.0;
 	float step = 0.05;
 
+	memset(usagestr, '\0', 130);
+	// expect only 1 argument => argc must be 2
+	if(argc != 2) {
+		snprintf(usagestr, 129, usage, argv[0], argv[0]);
+		puts(usagestr);
+		return -1;
+	}
+	// check for a valid, numeric argument
+	str = argv[1];
+	while(*str != '\0') {
+		if(!isdigit(*str)) {
+			invalid = 1;
+		}
+		str++;
+	}
+	if(invalid == 1) {
+		printf("%s: Invalid GPIO %s\n", argv[0], argv[2]);
+		return -1;
+	}
+	pwm_num = atoi(argv[1]);
+
 	mraa_init();
 
 	/* init pwm */
-	if((pwm = mraa_pwm_init(PWM)) == NULL) {
+	if((pwm = mraa_pwm_init(pwm_num)) == NULL) {
 		printf("Failed to initialize PWM\n");
 		mraa_deinit();
 		return -1;
@@ -36,7 +63,7 @@ int main() {
 	}
 
 	while (1) {
-		// 设置 PWM 占空比
+		// Set pwm duty cycle
 		mraa_pwm_write(pwm, duty_cycle);
 
 		// sleep 100 ms
