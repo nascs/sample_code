@@ -1,4 +1,10 @@
 /**
+ * Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
  * based on https://github.com/raspberrypi/pico-examples/blob/master/pwm/led_fade/pwm_led_fade.c
  */
 
