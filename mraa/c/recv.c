@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
 
 	mraa_init();
 
-    char uart_path[15];
-    snprintf(uart_path, sizeof(uart_path), "/dev/ttyS%d", atoi(argv[1]));
+	char uart_path[15];
+	snprintf(uart_path, sizeof(uart_path), "/dev/ttyS%d", atoi(argv[1]));
 	printf("uart_path: %s\n", uart_path);
 
 	if((recv_uart = mraa_uart_init_raw(uart_path)) == NULL) {
@@ -53,25 +53,25 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 
-    if ((status = mraa_uart_set_baudrate(recv_uart, 115200)) != MRAA_SUCCESS) {
-        return -1;
-    }
+	if ((status = mraa_uart_set_baudrate(recv_uart, 115200)) != MRAA_SUCCESS) {
+		return -1;
+	}
 
-    if ((status = mraa_uart_set_mode(recv_uart, 8, MRAA_UART_PARITY_NONE, 1)) != MRAA_SUCCESS) {
-        return -1;
-    }
+	if ((status = mraa_uart_set_mode(recv_uart, 8, MRAA_UART_PARITY_NONE, 1)) != MRAA_SUCCESS) {
+		return -1;
+	}
 
-    if ((status = mraa_uart_set_flowcontrol(recv_uart, FALSE, FALSE)) != MRAA_SUCCESS) {
-        return -1;
-    }
+	if ((status = mraa_uart_set_flowcontrol(recv_uart, FALSE, FALSE)) != MRAA_SUCCESS) {
+		return -1;
+	}
 
-    char recv_buff[1024];
-    printf("hello\n");
-    while(1) {
-        if (mraa_uart_data_available(recv_uart, 1) == TRUE) {
-            mraa_uart_read(recv_uart, recv_buff, sizeof(recv_buff));
-            printf("recv: %s\n", recv_buff);
-            sleep(1);
-        }
-    }
+	char recv_buff[1024];
+	printf("hello\n");
+	while(1) {
+		if (mraa_uart_data_available(recv_uart, 1) == TRUE) {
+			mraa_uart_read(recv_uart, recv_buff, sizeof(recv_buff));
+			printf("recv: %s\n", recv_buff);
+			sleep(1);
+		}
+	}
 }
