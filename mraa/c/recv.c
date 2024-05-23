@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	char recv_buff[1024];
-	printf("hello\n");
+
 	while(1) {
 		if (mraa_uart_data_available(recv_uart, 1) == TRUE) {
 			mraa_uart_read(recv_uart, recv_buff, sizeof(recv_buff));
